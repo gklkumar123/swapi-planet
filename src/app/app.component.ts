@@ -36,13 +36,12 @@ export class AppComponent {
     residents:'',
     films:''
   }
+  individualData:object;
 
   @ViewChild('childModal') childModal: ModalDirective; 
-  
-  constructor(private _swapiServices:SwapiService){
-   
+  @ViewChild('planetViewModal') planetViewModal: ModalDirective;
 
-  }
+  constructor(private _swapiServices:SwapiService){}
 
   ngOnInit(){
     this.getPlanetData();
@@ -83,9 +82,18 @@ export class AppComponent {
   }
 
   // Checkbox action for multiple select
-  checkBox(value:number){
-   
-    this.dataCount.push(value);
+  checkBox(el, value:number){
+
+    if(el.target.checked)
+      {
+        this.dataCount.push(value);
+
+      }else{
+
+        let index = this.dataCount.indexOf(value);
+        this.dataCount.splice(index,1);
+
+      }   
 
   }
 
@@ -132,6 +140,13 @@ export class AppComponent {
     this.totalCount += 1;
     this.hideChildModal(); 
   }
-  
+
+  view(data:number){
+    this.individualData = this.allPlanets[data];
+    this.planetViewModal.show();
+  }
+  hidePlanetViewModal(): void {
+    this.planetViewModal.hide();
+  }
 
 }
