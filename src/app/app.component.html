@@ -38,6 +38,80 @@
             </div>
 
         </div>
-    </div>   
+    </div> 
+    <!-- end container-area -->
+
+    <!-- Create model -->
+    <div bsModal #childModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title pull-left">Create Planet</h4>
+                    <button type="button" class="close pull-right" aria-label="Close" (click)="hideChildModal()">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                <form #planetForm="ngForm" >
+                    <div class="form-group"> 
+                        <label for="name">Name: </label>
+                        <input class="form-control" type="text" name="name" [(ngModel)]="planetAttributes.name" #name="ngModel" required>
+                        <small id="emailHelp" class="form-text text-muted">Name field is required, Please Fill</small>
+                        <div [hidden]="name.valid || name.pristine" class="error">
+                        Name is required!
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="rotation">Rotation Period: </label>
+                        <input class="form-control" type="number" name="rotation" [(ngModel)]="planetAttributes.rotation_period">
+                    </div>
+                    <div class="form-group">
+                        <label for="period">Oribital Period: </label>
+                        <input class="form-control" type="number" name="period" [(ngModel)]="planetAttributes.orbital_period">
+                    </div>
+                    <div class="form-group">
+                        <label for="diameter">Diameter: </label>
+                        <input class="form-control" type="number" name="diameter" [(ngModel)]="planetAttributes.diameter">
+                    </div>
+                    <div class="form-group">
+                        <label for="climate">Climate: </label>
+                        <input class="form-control" type="text" name="climate" [(ngModel)]="planetAttributes.climate">
+                    </div>
+                    <div class="form-group">
+                        <label for="gravity">Gravity: </label>
+                        <input class="form-control" type="text" name="gravity" [(ngModel)]="planetAttributes.gravity">
+                    </div>
+                    <div class="form-group">
+                        <label for="terrain">Terrian: </label>
+                        <input class="form-control" type="text" name="terrain" [(ngModel)]="planetAttributes.terrain">
+                    </div>
+                    <div class="form-group">
+                        <label for="surface_water">Surface Water: </label>
+                        <input class="form-control" type="number" name="surface_water" [(ngModel)]="planetAttributes.surface_water">
+                    </div>
+                    <div class="form-group">
+                        <label for="population">Population: </label>
+                        <input class="form-control" type="number" name="population" [(ngModel)]="planetAttributes.population">
+                    </div>
+                    <div class="form-group">
+                        <label for="residents">Residents: </label>
+                        <input class="form-control" type="text" name="residents" [(ngModel)]="planetAttributes.residents">
+                    </div>
+                    <div class="form-group">
+                        <label for="flims">Flims: </label>
+                        <input class="form-control" type="text" name="flims" [(ngModel)]="planetAttributes.films">
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="submit" class='btn btn-primary' [disabled]="!planetForm.form.valid" (click)="submit();">Save</button>
+                        <button type="button" class="btn btn-secondary " (click)="hideChildModal()">Close</button>
+                    </div>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
 </div>
 

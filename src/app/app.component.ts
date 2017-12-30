@@ -1,7 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+
+import { ModalDirective } from 'ngx-bootstrap/modal';
 
 //service
 import { SwapiService } from './service/swapi.service';
+
+
 
 @Component({
   selector: 'app-root',
@@ -9,6 +13,7 @@ import { SwapiService } from './service/swapi.service';
   styleUrls: ['./app.component.css'],
   providers:[SwapiService]
 })
+
 export class AppComponent {
 
   allPlanets:any;
@@ -17,8 +22,25 @@ export class AppComponent {
   totalCount:number;
   nextUrl:string;
   dataCount = new Array();
+
+  planetAttributes:Object = {
+    name:'',
+    rotation_period:'',
+    orbital_period:'',
+    diameter:'',
+    climate:'',
+    gravity:'',
+    terrain:'',
+    surface_water:'',
+    population:'',
+    residents:'',
+    films:''
+  }
+
+  @ViewChild('childModal') childModal: ModalDirective; 
   
   constructor(private _swapiServices:SwapiService){
+   
 
   }
 
@@ -74,12 +96,11 @@ export class AppComponent {
     }
   }
   
-  parentMethod(){
-    console.log('parent Method');
+  parentMethod():void{
+    this.childModal.show();
   }
 
   // Load more function
-
   loadMore(){
     let nextData;
     this.loader = true;
@@ -99,5 +120,18 @@ export class AppComponent {
       }
     )
   }
+
+  hideChildModal(){
+    this.childModal.hide();
+  }
+  
+  submit(){
+
+    console.log(this.planetAttributes);
+    this.allPlanets.push(this.planetAttributes);
+    this.totalCount += 1;
+    this.hideChildModal(); 
+  }
+  
 
 }

@@ -12,6 +12,9 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 // ngx-bootstrap
 import { TooltipModule } from 'ngx-bootstrap';
+import { ModalModule } from 'ngx-bootstrap/modal';
+
+// Directive
 import { UppercaseDirective } from './directive/uppercase.directive';
 
 @NgModule({
@@ -26,7 +29,8 @@ import { UppercaseDirective } from './directive/uppercase.directive';
     AngularFontAwesomeModule,
     TooltipModule.forRoot(),
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ModalModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]
