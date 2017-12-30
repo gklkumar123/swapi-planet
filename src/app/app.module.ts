@@ -12,12 +12,14 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 // ngx-bootstrap
 import { TooltipModule } from 'ngx-bootstrap';
+import { UppercaseDirective } from './directive/uppercase.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    AddComponent
+    AddComponent,
+    UppercaseDirective
   ],
   imports: [
     BrowserModule,

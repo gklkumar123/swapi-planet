@@ -22,7 +22,7 @@
                     <label>
                         <input class="form-check-input" type="checkbox" value="i" (click)="checkBox(i)" />
                     </label>
-                    <h4 class="planet-name">{{planet.name}} </h4>
+                    <h4 class="planet-name" uppercase>{{planet.name}} </h4>
                     <span class="diameter">Diameter: {{planet.diameter}}  <fa class="pull-right delete" name="trash-o" tooltip='Delete' size="1x" (click)="delete(i)"></fa> 
                     <span class="pull-right seperator">|</span>
                     <fa class="pull-right eye" name="eye" size="1x"  tooltip='View' (click)="view(i)"></fa></span>
