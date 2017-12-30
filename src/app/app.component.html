@@ -103,7 +103,7 @@
                     </div>
 
                     <div class="modal-footer">
-                        <button type="submit" class='btn btn-primary' [disabled]="!planetForm.form.valid" (click)="submit();">Save</button>
+                        <button type="submit" class='btn btn-primary' [disabled]="!planetForm.form.valid" (click)="submit() ==1?planetForm.reset():'';">Save</button>
                         <button type="button" class="btn btn-secondary " (click)="hideChildModal()">Close</button>
                     </div>
                 </form>

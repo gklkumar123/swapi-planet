@@ -139,6 +139,7 @@ export class AppComponent {
     this.allPlanets.push(this.planetAttributes);
     this.totalCount += 1;
     this.hideChildModal(); 
+    return 1;
   }
 
   view(data:number){
