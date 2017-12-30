@@ -52,9 +52,9 @@ export class AppComponent {
   getPlanetData(){
     this._swapiServices.getPlanets().subscribe(
       data=>{
-        this.totalCount = data.count;
-        this.allPlanets = data.results;
-        this.nextUrl = data.next;
+        this.totalCount = data['count'];
+        this.allPlanets = data['results'];
+        this.nextUrl = data['next'];
         console.log('assigned value');
       },  
       error => {
@@ -115,8 +115,8 @@ export class AppComponent {
     this.loader = true;
     this._swapiServices.getPlanetsNext(this.nextUrl).subscribe(
       data=>{
-        this.nextUrl = data.next;
-        nextData= data.results;
+        this.nextUrl = data['next'];
+        nextData= data['results'];
       },
       error => {
         this.fetchError = error
