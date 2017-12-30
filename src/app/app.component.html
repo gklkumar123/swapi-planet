@@ -1,5 +1,13 @@
 
 <div class="container-fluid">
     <app-header></app-header>
+
+    <div class="container content-area">
+        <!-- loader -->
+        <div class="loader" *ngIf='loader'>
+            <fa  name="spinner" size="5x"  class="spinner" animation="spin"></fa>
+        </div>
+    </div>
+    
 </div>
 

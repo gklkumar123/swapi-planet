@@ -1,0 +1,10 @@
+
+.plus-icon fa{
+    float: right;
+    padding-top: 20px;
+    padding-right: 30px;
+}
+
+.plus-icon fa:hover{
+    color: #ee6538;
+}
