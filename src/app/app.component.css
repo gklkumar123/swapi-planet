@@ -3,6 +3,7 @@
 .content-area{
     top: 100px;
     position: absolute;
+    padding-left: 60px;
 }
 
 /* spinner */
@@ -59,4 +60,10 @@
 
 .delete:hover{
     color: #E74C3C;
+}
+
+/* Load more */
+.load-more{
+    margin-top: 20px;
+    margin-bottom: 20px;
 }

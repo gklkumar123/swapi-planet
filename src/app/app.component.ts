@@ -77,4 +77,27 @@ export class AppComponent {
   parentMethod(){
     console.log('parent Method');
   }
+
+  // Load more function
+
+  loadMore(){
+    let nextData;
+    this.loader = true;
+    this._swapiServices.getPlanetsNext(this.nextUrl).subscribe(
+      data=>{
+        this.nextUrl = data.next;
+        nextData= data.results;
+      },
+      error => {
+        this.fetchError = error
+      },()=>{
+        for(let i=0; i<nextData.length;i++){
+          this.allPlanets.push(nextData[i]);
+        }
+        this.loader = false;
+
+      }
+    )
+  }
+
 }

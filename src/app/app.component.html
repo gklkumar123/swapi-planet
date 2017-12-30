@@ -14,6 +14,7 @@
                 <span class='count-heading'>Total count :<span class="count"> {{ totalCount}}</span></span>
                 <button class="btn btn-primary pull-right" [disabled]='dataCount.length<2' (click)="multipleDelete()"> Multiple Delete</button>
                 <span class="pull-right planet-selected">Total Selected : {{dataCount.length}}</span>
+                <span class="pull-right planet-selected"> Total Displayed: {{allPlanets.length}}</span>
             </div>
 
             <!-- Card of Planet -->
@@ -27,6 +28,13 @@
                     <span class="pull-right seperator">|</span>
                     <fa class="pull-right eye" name="eye" size="1x"  tooltip='View' (click)="view(i)"></fa></span>
                 </div>
+            </div>
+            
+            <div class="clearfix"></div>
+            
+            <!-- load more -->
+            <div class="row text-center load-more">
+                <button class="btn btn-primary" (click)=loadMore()>Load More</button>
             </div>
 
         </div>
