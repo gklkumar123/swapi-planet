@@ -14,6 +14,9 @@ export class AppComponent {
   allPlanets:any;
   fetchError:any;
   loader:boolean = true;
+  totalCount:number;
+  nextUrl:string;
+  dataCount = new Array();
   
   constructor(private _swapiServices:SwapiService){
 
@@ -27,16 +30,51 @@ export class AppComponent {
   getPlanetData(){
     this._swapiServices.getPlanets().subscribe(
       data=>{
+        this.totalCount = data.count;
         this.allPlanets = data.results;
+        this.nextUrl = data.next;
+        console.log('assigned value');
       },  
       error => {
         this.fetchError = error;
         this.loader = false;
       },
-      
       ()=>{
         this.loader = false;
       }
     )
+  }
+
+  // Multiple Delete
+  multipleDelete(){
+    this.totalCount = this.totalCount - this.dataCount.length;
+    if(this.dataCount.length>=1){
+        for(let i=0; i<this.dataCount.length;i++){
+          let j=this.dataCount[i];
+          if(i>0){
+             j = this.dataCount[i]-1;
+          }
+          this.allPlanets.splice(j,1);
+        }
+        this.dataCount = [];
+    }
+  }
+
+  // Checkbox action for multiple select
+  checkBox(value:number){
+   
+    this.dataCount.push(value);
+
+  }
+
+  // Individual Delete
+  delete(data:number){
+    if(window.confirm('Are sure you want to delete this?')){
+      this.allPlanets.splice(data,1);
+    }
+  }
+  
+  parentMethod(){
+    console.log('parent Method');
   }
 }

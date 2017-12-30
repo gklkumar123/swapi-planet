@@ -10,3 +10,53 @@
     text-align: center;
     margin-top: 30px;
 }
+
+/* action bar */
+.action{
+    margin-top:15px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.count-heading{
+    float: right;
+    font-size: 20px;
+    padding-right: 64px;
+    padding-left: 20px;
+}
+
+.planet-selected{
+    padding-right: 15px;
+    padding-top: 5px;
+  }
+
+  /* card */
+.planet-container{
+    border: 1px solid #E74C3C;
+    padding: 10px;
+    margin: 10px 0px 10px 70px;
+}
+
+.planet-name{
+    color: #3498DB;
+    font-weight: 700;
+}
+
+.diameter{
+    font-style: italic
+}
+
+.seperator{
+    font-size: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-weight: 700;
+}
+
+.eye:hover{
+    color: #42A948;
+}
+
+.delete:hover{
+    color: #E74C3C;
+}

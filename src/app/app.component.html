@@ -1,13 +1,35 @@
 
 <div class="container-fluid">
-    <app-header></app-header>
+    <app-header (parentEmitter)="parentMethod()"></app-header>
 
     <div class="container content-area">
         <!-- loader -->
         <div class="loader" *ngIf='loader'>
             <fa  name="spinner" size="5x"  class="spinner" animation="spin"></fa>
         </div>
-    </div>
-    
+
+        <!-- after loading display -->
+        <div *ngIf='!loader'>
+            <div  class="row action">
+                <span class='count-heading'>Total count :<span class="count"> {{ totalCount}}</span></span>
+                <button class="btn btn-primary pull-right" [disabled]='dataCount.length<2' (click)="multipleDelete()"> Multiple Delete</button>
+                <span class="pull-right planet-selected">Total Selected : {{dataCount.length}}</span>
+            </div>
+
+            <!-- Card of Planet -->
+            <div *ngFor = "let planet of allPlanets; let i=index">
+                <div class="row planet-container col-md-5">
+                    <label>
+                        <input class="form-check-input" type="checkbox" value="i" (click)="checkBox(i)" />
+                    </label>
+                    <h4 class="planet-name">{{planet.name}} </h4>
+                    <span class="diameter">Diameter: {{planet.diameter}}  <fa class="pull-right delete" name="trash-o" tooltip='Delete' size="1x" (click)="delete(i)"></fa> 
+                    <span class="pull-right seperator">|</span>
+                    <fa class="pull-right eye" name="eye" size="1x"  tooltip='View' (click)="view(i)"></fa></span>
+                </div>
+            </div>
+
+        </div>
+    </div>   
 </div>
 
