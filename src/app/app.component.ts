@@ -23,29 +23,36 @@ export class AppComponent {
   nextUrl:string;
   dataCount = new Array();
 
-  planetAttributes:Object = {
-    name:'',
-    rotation_period:'',
-    orbital_period:'',
-    diameter:'',
-    climate:'',
-    gravity:'',
-    terrain:'',
-    surface_water:'',
-    population:'',
-    residents:'',
-    films:''
-  }
+  planetAttributes:Object;
   individualData:object;
 
 
-  @ViewChild('childModal') childModal: ModalDirective; 
+  @ViewChild('childModal') childModal: ModalDirective;
+  @ViewChild('planetForm') planetForm;
   @ViewChild('planetViewModal') planetViewModal: ModalDirective;
 
-  constructor(private _swapiServices:SwapiService){}
+  constructor(private _swapiServices:SwapiService){
+    this.resetPlanetAttributes();
+  }
 
   ngOnInit(){
     this.getPlanetData();
+  }
+
+  resetPlanetAttributes() {
+    this.planetAttributes = {
+      name:'',
+      rotation_period:'',
+      orbital_period:'',
+      diameter:'',
+      climate:'',
+      gravity:'',
+      terrain:'',
+      surface_water:'',
+      population:'',
+      residents:'',
+      films:''
+    }
   }
 
   // Getting the intial list of data when loading
@@ -136,9 +143,11 @@ export class AppComponent {
   
   submit(){
 
-    let a = this.allPlanets.push(this.planetAttributes);
+    this.allPlanets.push(this.planetAttributes);
     this.totalCount += 1;
     this.hideChildModal();
+    this.resetPlanetAttributes();
+    this.planetForm.reset();
 
   }
 
