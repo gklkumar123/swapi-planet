@@ -78,3 +78,8 @@ input.ng-valid[required] {
     background-color: rgba(255, 0, 0, 0.2);
     color: red;
   }
+
+  .field{
+    font-size: 18px;
+    font-weight: 600;
+}

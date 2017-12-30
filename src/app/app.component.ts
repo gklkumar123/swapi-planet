@@ -38,6 +38,7 @@ export class AppComponent {
   }
   individualData:object;
 
+
   @ViewChild('childModal') childModal: ModalDirective; 
   @ViewChild('planetViewModal') planetViewModal: ModalDirective;
 
@@ -135,11 +136,10 @@ export class AppComponent {
   
   submit(){
 
-    console.log(this.planetAttributes);
-    this.allPlanets.push(this.planetAttributes);
+    let a = this.allPlanets.push(this.planetAttributes);
     this.totalCount += 1;
-    this.hideChildModal(); 
-    return 1;
+    this.hideChildModal();
+
   }
 
   view(data:number){
