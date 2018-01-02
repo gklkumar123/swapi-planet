@@ -78,6 +78,8 @@ export class AppComponent {
   multipleDelete(){
     this.totalCount = this.totalCount - this.dataCount.length;
     if(this.dataCount.length>=1){
+      this.dataCount = this.dataCount.sort(function(a,b){return a-b});
+      console.log(this.dataCount);
         for(let i=0; i<this.dataCount.length;i++){
           let j=this.dataCount[i];
           if(i>0){
