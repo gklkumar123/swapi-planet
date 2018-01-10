@@ -23,8 +23,21 @@ export class AppComponent {
   nextUrl:string;
   dataCount = new Array();
 
-  planetAttributes:Object;
-  individualData:object;
+  planetAttributes:any = {
+    name:'',
+    rotation_period:'',
+    orbital_period:'',
+    diameter:'',
+    climate:'',
+    gravity:'',
+    terrain:'',
+    surface_water:'',
+    population:'',
+    residents:'',
+    films:''
+  };
+
+  individualData:Object;
 
 
   @ViewChild('childModal') childModal: ModalDirective;
